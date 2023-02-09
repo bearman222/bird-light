@@ -1,3 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
 .navbar-brand-icon {
     max-height: 2.5rem;
+}
+
+#navbar-section {}
+
+#title-section {
+    /* padding: 5% 5% 8%; */
+    /* text-align: justify; */
+}
+
+#title-section h1 {
+    font-family: 'Indie Flower', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2em;
+    line-height: 1.2;
+    font-weight: 800;
+    /* padding: 0 5%; */
+}
+
+#title-section p {
+    /* font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif; */
+    color: grey;
+    font-weight: 600;
+}
+
+#title-section img {
+    /* min-height: 300px; */
+    max-height: 700px;
+    object-fit: cover;
+}
+
+#hero-section {
+    /* text-align: center; */
+    /* padding: 3% 5%; */
+    /* height: fit-content; */
+    /* margin: 0 auto; */
+}
+
+.colored-section {
+    background-color: antiquewhite;
+}
+
+.carousel-inner {
+    /* padding: 0 10px; */
+    /* border: 20px solid; */
+    /* box-sizing: content-box; */
+}
+
+#hero-section img {
+    min-height: 300px;
+    max-height: 500px;
+    position: relative;
+    object-fit: cover;
 }
