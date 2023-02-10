@@ -1,0 +1,108 @@
+/*WEBSITE COLORS*/
+:root {
+    --color-brand: #A5B2C6;
+    --color-light-accent: #DF9F60;
+    --color-light: #dbe9ff;
+    --color-dark-accent: #B75966;
+    --color-dark: #4D536D;
+    --light-text: #f8f9fa;
+    --dark-text: #212529
+}
+
+
+/*APPLY COLORS TO ELEMENTS */
+.color-background {
+    background-color: var(--color-light);
+}
+
+.text-pad {
+    padding: 3% 5%;
+}
+
+
+/*STYLE FOR COLOR BOXES */
+.color-box-light {
+    color: var(--dark-text);
+    background-color: var(--color-light);
+}
+
+.color-box-light-accent {
+    color: var(--dark-text);
+    background-color: var(--color-light-accent);
+}
+
+.color-box-brand {
+    color: var(--dark-text);
+    background-color: var(--color-brand);
+}
+
+.color-box-dark {
+    color: var(--light-text);
+    background-color: var(--color-dark);
+}
+
+.color-box-dark-accent {
+    color: var(--light-text);
+    background-color: var(--color-dark-accent);
+}
+
+/*STYLE FOR BUTTONS */
+.color-btn {
+    border-width: 0.2rem;
+    border-radius: 0.5rem;
+    padding: 2px 2%;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.color-btn:hover {
+    border-radius: 1em 0.25em;
+    cursor: crosshair;
+}
+
+.color-btn-light {
+    color: var(--dark-text);
+    background-color: var(--color-light-accent);
+}
+.color-btn-light-outline {
+    color: var(--dark-text);
+    border-color: var(--color-light-accent);
+    background-color: var(--color-brand);
+}
+
+.color-btn-light-outline:hover {
+    color: var(--dark-text);
+    background-color: var(--color-light-accent);
+}
+
+.color-btn-brand {
+    color: var(--dark-text);
+    background-color: var(--color-brand);
+}
+.color-btn-brand:hover {
+    color: var(--light-text);
+    background-color: var(--color-dark-accent);
+}
+
+.color-btn-brand-outline {
+    color: var(--dark-text);
+    border-color: var(--color-brand);
+}
+.color-btn-brand-outline:hover {
+    background-color: var(--color-brand);
+}
+
+.color-btn-dark {
+    color: var(--light-text);
+    background-color: var(--color-dark-accent);
+}
+
+.color-btn-dark-outline {
+    color: var(--dark-text);
+    border-color: var(--color-dark-accent);
+}
+.color-btn-dark-outline:hover {
+    color: var(--light-text);
+    background-color: var(--color-dark-accent);
+}

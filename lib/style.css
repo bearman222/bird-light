@@ -4,13 +4,6 @@
     max-height: 2.5rem;
 }
 
-#navbar-section {}
-
-#title-section {
-    /* padding: 5% 5% 8%; */
-    /* text-align: justify; */
-}
-
 #title-section h1 {
     font-family: 'Indie Flower', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 2em;
@@ -32,21 +25,9 @@
 }
 
 #hero-section {
-    /* text-align: center; */
-    /* padding: 3% 5%; */
-    /* height: fit-content; */
-    /* margin: 0 auto; */
 }
 
-.colored-section {
-    background-color: antiquewhite;
-}
-
-.carousel-inner {
-    /* padding: 0 10px; */
-    /* border: 20px solid; */
-    /* box-sizing: content-box; */
-}
+.carousel-inner { }
 
 #hero-section img {
     min-height: 300px;
