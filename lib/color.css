@@ -1,10 +1,10 @@
 /*WEBSITE COLORS*/
 :root {
-    --color-brand: #A5B2C6;
-    --color-light-accent: #DF9F60;
-    --color-light: #dbe9ff;
-    --color-dark-accent: #B75966;
-    --color-dark: #4D536D;
+    --color-brand: #D9833D;
+    --color-light-accent: #7FBBBB;
+    --color-light: #EEEAEA;
+    --color-dark-accent: #4380D2;
+    --color-dark: #284B7B;
     --light-text: #f8f9fa;
     --dark-text: #212529
 }
@@ -48,12 +48,16 @@
 
 /*STYLE FOR BUTTONS */
 .color-btn {
-    border-width: 0.2rem;
-    border-radius: 0.5rem;
-    padding: 2px 2%;
+    border-width: 3px;
+    border-radius: 0.5em;
+    padding: 10px;
     font-weight: 600;
     font-size: 1.2rem;
     line-height: 1;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    -o-border-radius: 0.5em;
 }
 
 .color-btn:hover {
@@ -78,6 +82,7 @@
 
 .color-btn-brand {
     color: var(--dark-text);
+    
     background-color: var(--color-brand);
 }
 .color-btn-brand:hover {
@@ -96,6 +101,7 @@
 .color-btn-dark {
     color: var(--light-text);
     background-color: var(--color-dark-accent);
+    /* --bs-btn-color: #212529; */
 }
 
 .color-btn-dark-outline {
@@ -105,4 +111,9 @@
 .color-btn-dark-outline:hover {
     color: var(--light-text);
     background-color: var(--color-dark-accent);
+}
+
+/* TEXT COLORS */
+.color-brand {
+    color: var(--color-brand);
 }

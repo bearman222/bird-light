@@ -1,37 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
 
-.navbar-brand-icon {
-    max-height: 2.5rem;
+html {
+    scroll-behavior: smooth;
 }
+
+.scroller {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+#title-section, #hero-section, #catalog  {
+/* .scroller :not(#navbar-section) { */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: fit-content;
+    min-height: 80vh;
+    width: 100vw;
+    scroll-padding: 20%;
+    /*display: block;*/
+}
+#navbar-section {
+    scroll-snap-align: end;
+    scroll-snap-stop: normal;
+    height: 90px;
+}
+
+
+.navbar-brand-icon {
+    max-height: 2rem;
+}
+
 
 #title-section h1 {
     font-family: 'Indie Flower', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 2em;
-    line-height: 1.2;
-    font-weight: 800;
-    /* padding: 0 5%; */
+    font-size: 3rem;
+    /* line-height: 1; */
+    /* font-weight: 800; */
 }
 
-#title-section p {
-    /* font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif; */
-    color: grey;
-    font-weight: 600;
+
+.title-logo {
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    animation-name: title-animate;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.39, 0.05, 0.565, 1);
+    /* animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95); */
+
 }
 
-#title-section img {
-    /* min-height: 300px; */
-    max-height: 700px;
-    object-fit: cover;
+@keyframes title-animate {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: ;
+        -moz-transform: ;
+        -ms-transform: ;
+        -o-transform: ;
+    }
+
+    0% {
+        position: relative;
+        /*top: -100%;
+        */
+        /*mask: 100%;
+        */
+        left: -50%;
+        width: 0px;
+        height: 0px;
+        z-index: 0;
+    }
+
+    100% {
+        position: relative;
+        left: 0;
+        top: 0;
+        z-index: 1;
+    }
 }
 
-#hero-section {
+/* 
+.title-hook {
+
 }
 
-.carousel-inner { }
+#hero-section {}
+
+.carousel-inner {}
 
 #hero-section img {
     min-height: 300px;
     max-height: 500px;
     position: relative;
     object-fit: cover;
+} */
+
+
+#title-img-container {
+    /* max-height: 300px ; */
+    max-width: 300px;
+}
+
+.title-image-card {}
+
+#carousel-box {
+    max-height: 65vh;
+
 }
