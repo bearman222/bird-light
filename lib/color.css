@@ -1,7 +1,7 @@
 /*WEBSITE COLORS*/
 :root {
     --color-brand: #D9833D;
-    --color-light-accent: #7FBBBB;
+    --color-light-accent: #d0b31e;
     --color-light: #EEEAEA;
     --color-dark-accent: #4380D2;
     --color-dark: #284B7B;
@@ -21,6 +21,14 @@
 
 
 /*STYLE FOR COLOR BOXES */
+.color-box {
+    padding: 2em 5%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
 .color-box-light {
     color: var(--dark-text);
     background-color: var(--color-light);
