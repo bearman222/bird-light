@@ -1,0 +1,165 @@
+html {
+    transition: all 0.5s smooth;
+    -webkit-transition: all 0.5s smooth;
+    -moz-transition: all 0.5s smooth;
+    -ms-transition: all 0.5s smooth;
+    -o-transition: all 0.5s smooth;
+}
+.animate-logo {
+    animation-name: animate-bird;
+    /* animation-delay: 2s; */
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.39, 0.05, 0.565, 1);
+    animation-fill-mode: forwards;
+}
+
+.animate-title-text {
+    animation-name: animate-title;
+    animation-direction: reverse;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}
+
+@media only screen and (max-width:800) {
+
+}
+.animate-button {
+    /* hops on mobile */
+    position: relative;
+    animation-name: animate-button;
+    animation-delay: 3.5s;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -ms-transition: all 2s ease;
+    -o-transition: all 2s ease;
+}
+
+.animate-button-hover:hover {
+    position: relative;
+    animation-name: animate-button;
+    animation-duration: .3s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    transition: all 2s ease;
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    -ms-transition: all 2s ease;
+    -o-transition: all 2s ease;
+}
+
+
+
+@keyframes animate-bird {
+
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+
+    0% {
+        position: relative;
+        left: -50%;
+        width: 0px;
+        height: 0px;
+        z-index: 0;
+    }
+
+    100% {
+        position: relative;
+        left: 0;
+        top: 0;
+        z-index: 1;
+    }
+}
+
+@keyframes animate-title {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(10deg);
+        -webkit-transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+        -ms-transform: rotate(10deg);
+        -o-transform: rotate(10deg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+        -webkit-transform: rotate(-10deg);
+        -moz-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+        -o-transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+}
+
+@keyframes animate-button {
+    0% {
+        top: 0px;
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+
+    25% {
+        top: -5px;
+        transform: rotate(10deg);
+        -webkit-transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+        -ms-transform: rotate(10deg);
+        -o-transform: rotate(10deg);
+    }
+
+    75% {
+        top: 0px;
+        transform: rotate(-10deg);
+        -webkit-transform: rotate(-10deg);
+        -moz-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+        -o-transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+}
