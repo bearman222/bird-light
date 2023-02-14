@@ -2,6 +2,36 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 120%;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Indie Flower', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.8em;
+
+}
+
+h2 {
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+.container-fluid,
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 .scroller {
@@ -12,30 +42,34 @@ html {
     scroll-behavior: smooth;
 }
 
-#navbar-section {
-    scroll-snap-align:end;
-    scroll-snap-stop: normal;
-    height: 4em;
-    scroll-padding: 5vh;
+@media only screen and (width <=500px) {
+    html {
+        font-size: 85%;
+        font-weight: bolder;
+    }
+}
+
+@media only screen and (width <=800px) {
+    html {
+        font-size: 95%;
+        font-weight: bold;
+    }
 }
 
 #title-section,
 #about-section,
 #hero-section,
 #catalog {
-    /* .scroller :not(#navbar-section) { */
     scroll-snap-align: start;
-    scroll-snap-stop: always;
     height: fit-content;
-    min-height: 60vh;
-    /* width: 100%; */
-    scroll-padding: 20vh;
-    scroll-margin-block-start: 4vh;
-    /*display: block;*/
+    min-height: 75vh;
+    scroll-snap-stop: normal;
 }
 
-#title-section {
-    scroll-margin-block-start: 0;
+#navbar-section {
+    scroll-snap-align: start;
+    height: 4em;
+    /* scroll-padding: 5vh;0 */
 }
 
 
@@ -44,12 +78,7 @@ html {
 }
 
 
-#title-section h1 {
-    font-family: 'Indie Flower', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 3rem;
-    /* line-height: 1; */
-    /* font-weight: 800; */
-}
+
 
 
 .title-logo {
@@ -59,156 +88,15 @@ html {
     /* animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95); */
 }
 
-.animate-logo {
-    animation-name: animate-bird;
-    /* animation-delay: 2s; */
-    animation-duration: 2s;
-    animation-timing-function: cubic-bezier(0.39, 0.05, 0.565, 1);
-}
 
-.animate-title-text {
-    animation-name: animate-title;
-    animation-direction: reverse;
-    animation-delay: 2s;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    -o-transition: all 1s ease;
-}
-
-.animate-button:hover {
-    position:relative;
-    animation-name: animate-button;
-    animation-duration: .5s;
-    animation-iteration-count: 1;
-    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    -o-transition: all 1s ease;
-}
-
-
-
-@keyframes animate-bird {
-
-    from {
-        transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-    }
-
-    0% {
-        position: relative;
-        left: -50%;
-        width: 0px;
-        height: 0px;
-        z-index: 0;
-    }
-
-    100% {
-        position: relative;
-        left: 0;
-        top: 0;
-        z-index: 1;
-    }
-}
-
-@keyframes animate-title {
-    0% {
-        transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(10deg);
-        -webkit-transform: rotate(10deg);
-        -moz-transform: rotate(10deg);
-        -ms-transform: rotate(10deg);
-        -o-transform: rotate(10deg);
-}
-
-    75% {
-        transform: rotate(-10deg);
-        -webkit-transform: rotate(-10deg);
-        -moz-transform: rotate(-10deg);
-        -ms-transform: rotate(-10deg);
-        -o-transform: rotate(-10deg);
-}
-
-    100% {
-        transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-    }
-}
-
-@keyframes animate-button {
-    0% {
-        top:0px;
-        transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-    }
-
-    25% {
-        top:-5px;
-        transform: rotate(10deg);
-        -webkit-transform: rotate(10deg);
-        -moz-transform: rotate(10deg);
-        -ms-transform: rotate(10deg);
-        -o-transform: rotate(10deg);
-}
-
-    75% {top:0px;
-        transform: rotate(-10deg);
-        -webkit-transform: rotate(-10deg);
-        -moz-transform: rotate(-10deg);
-        -ms-transform: rotate(-10deg);
-        -o-transform: rotate(-10deg);
-}
-
-    100% {
-        transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-    }
-}
 
 
 
 #title-img-container {
     max-width: 300px;
 }
+
 #carousel-box {
     max-height: 65vh;
 
-}
-
-.test-card {
-    col-12;
 }
