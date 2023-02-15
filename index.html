@@ -21,384 +21,439 @@
 </head>
 
 <body>
-    <div id="main-container" class="scroller container-fluid color-box-dark">
+
+
+    <div id="scroll-view" class="container-fluid color-box-dark">
         <!--         NAVBAR  -->
-        <header class="">
-            <section id="navbar-section">
-                <!-- <div id="navbar-pad" class="mx-5 color-box-brand"> -->
-                <nav class="navbar navbar-expand-md color-box-brand px-2 pt-2">
-                    <a class="navbar-brand fw-semibold" href="index.html"> <img class="navbar-brand-icon"
-                            src="./lib/bird-light.ico" alt="icon">
-                        </img>Bird Light
-                    </a>
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="collapsibleNavId">
-                        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#" aria-current="page">Home
-                                    <span class="visually-hidden">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Gallery</a>
-                            </li>
-                        </ul>
-                        <!-- <form class="d-flex my-2 my-lg-0">
+        <section id="navbar-section" class="">
+            <div id="navbar-pad" class="color-box-brand mx-2">
+                <nav class="navbar navbar-expand-md color-box-brand autohide">
+                    <div class="container-fluid">
+                        <a class="navbar-brand fw-semibold" href="index.html"> <img class="navbar-brand-icon"
+                                src="./lib/bird-light.ico" alt="icon">
+                            </img>Bird Light
+                        </a>
+                        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="collapsibleNavId">
+                            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" aria-current="page">Home
+                                        <span class="visually-hidden">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Gallery</a>
+                                </li>
+                            </ul>
+                            <!-- <form class="d-flex my-2 my-lg-0">
                         <input class="form-control me-sm-2" type="text" placeholder="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form> -->
+                        </div>
                     </div>
                 </nav>
-                <!-- </div> -->
-            </section>
-        </header>
+            </div>
+        </section>
 
+        <style type="text/css">
+            .autohide {
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1030;
+            }
+
+            .scrolled-down {
+                transform: translateY(-100%);
+                transition: all 0.3s ease-in-out;
+            }
+
+            .scrolled-up {
+                transform: translateY(0);
+                transition: all 0.3s ease-in-out;
+            }
+        </style>
+
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                const el_autohide = document.querySelector('.autohide');
+
+                // add padding-top to body (if necessary)
+                var navbar_height = document.querySelector('.navbar').offsetHeight;
+                var scroll_elem = document.getElementById('scroll-view');
+                scroll_elem.style.height = window.innerHeight - navbar_height;
+                console.log(`this is the margin: ` + scroll_elem.style.height);
+//                document.getElementById("scroll-view").style.height=window.innerHeight;
+
+
+                if (el_autohide) {
+                    // alert('found it');
+                    // console.log(`this is the margin: ` + scroll_elem.style.height);
+
+                    let last_scroll_top = 0;
+                    scroll_elem.addEventListener('scroll', function () {
+                        let scroll_top = scroll_elem.scrollTop;
+                        if (scroll_top < last_scroll_top) {
+                            console.log('scrolled up');
+                            el_autohide.classList.remove('scrolled-down');
+                            el_autohide.classList.add('scrolled-up');
+                        } else {
+                            console.log('scrolled down');
+                            el_autohide.classList.remove('scrolled-up');
+                            el_autohide.classList.add('scrolled-down');
+                        }
+                        last_scroll_top = scroll_top;
+                    });
+                }
+            });
+        </script>
         <!-- MAIN PAGE CONTENT -->
-        <main>
+        <!-- <main> -->
 
-            <!-- TITLE SECTION  -->
-            <section id="title-section" class="color-box-dark px-md-4 py-2 py-md-4">
-                <div id="title-pad" class="color-box color-box-dark-accent">
-                    <div id="title-content"
-                        class="row color-box color-box-brand text-center mx-auto col-lg-10 justify-content-center align-content-center">
-                        <!-- LEFT SIDE TITLE -->
-                        <div id="title-text-container" class="col-md-6 pe-md-5 pb-4">
-                            <h1 id="title-text" class="">
-                                <nobr class="fs-3">The Place for<br></nobr>
-                                <nobr>
-                                    <div class="fw-bolder animate-title-text"><img class="title-logo animate-logo"
-                                            src="./lib/bird-light-logo.png" alt="icon"></img>
-                                        Bird-Light</div>
-                                </nobr>
-                                <nobr class="fw-light">NFTs + Art</nobr>
-                            </h1>
-                            <!-- CALL TO ACTION BUTTON -->
-                            <p class="text-dark-secondary fw-bold">Limited chance to buy, <nobr>🐦don't
-                                    miss out.</nobr>
+        <!-- TITLE SECTION  -->
+        <section id="title-section" class="color-box-dark px-md-4 py-2">
+            <div id="title-pad" class="color-box color-box-dark-accent">
+                <div id="title-content"
+                    class="row color-box color-box-brand text-center mx-auto col-lg-10 justify-content-center align-content-center">
+                    <!-- LEFT SIDE TITLE -->
+                    <div id="title-text-container" class="col-md-6 pe-md-5 pb-4">
+                        <h1 id="title-text" class="">
+                            <nobr class="fs-3">The Place for<br></nobr>
+                            <nobr>
+                                <div class="fw-bolder animate-title-text"><img class="title-logo animate-logo"
+                                        src="./lib/bird-light-logo.png" alt="icon"></img>
+                                    Bird-Light</div>
+                            </nobr>
+                            <nobr class="fw-light">NFTs + Art</nobr>
+                        </h1>
+                        <!-- CALL TO ACTION BUTTON -->
+                        <p class="text-dark-secondary fw-bold">Limited chance to buy, <nobr>🐦don't
+                                miss out.</nobr>
+                        </p>
+                        <div class="btn-group">
+                            <a href="#hero-section"><button type="button" name="buy-artwork-btn" id="buy-artwork-btn"
+                                    class="color-btn btn-primary animate-button animate-button-hover">Buy
+                                    Artwork</button></a>
+                            <a href="#catalog"><button type="button" name="buy-nfts-btn" id="buy-nfts-btn"
+                                    class="color-btn color-btn-light animate-button animate-button-hover">Get
+                                    NFTs</button></a>
+                        </div>
+                    </div>
+                    <!-- RIGHT SIDE OF TITLE -->
+                    <div id="title-img-container" class="col-md-6 mx-auto pt-5 pt-md-4 ">
+                        <div class="card title-image-card">
+                            <div class="card-margin">
+                                <img class=" rounded-5 card-image " src=" ./lib/img/bird-img5.png"
+                                    alt="huge cypress tree with heron"> </img>
+                            </div>
+                            <div class="content">
+                                <!-- <h6 class="category text-primary" >NFTs</h6> -->
+                                <p class="card-description text-dark-secondary">
+                                    These images are <nobr>easy to use 🦅</nobr> and <nobr>look great 🦉</nobr>
+                                    on
+                                    desktop and mobile.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION  -->
+        <section id="about-section" class="color-box-dark px-md-4">
+            <div id="about-pad" class="color-box color-box-dark-accent">
+                <div id="about-content" class="row color-box color-box-brand text-center mx-auto col-lg-10">
+                    <h3>
+                        <nobr>🦆🦉🦅</nobr>
+                        <nobr>🦃🦢🦔</nobr>
+                        <nobr>🕊️🐦</nobr>
+                    </h3>
+                    <h1 class="fw-bold">But why bird-themed art?</h1>
+                    <h2 class="text-dark-secondary">
+                        <nobr>Birds represent</nobr>
+                        <nobr>freedom, hope,</nobr>
+                        <nobr>and renewal.</nobr>
+                    </h2>
+                    <div class="row justify-content-around">
+                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
+                                class="fa-solid fa-feather fa-2x"></i>Our collection of NFTs
+                            (non-fungible tokens) and art prints will transport you to a world filled with the
+                            beauty and wonder of birds. </p>
+                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
+                                class="fa-solid fa-cubes fa-2x"></i>Our NFTs are one-of-a-kind
+                            digital assets verified on the blockchain, so you're not only getting a beautiful piece
+                            of art, but a piece of history too. </p>
+                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
+                                class="fa-solid fa-file-shield fa-2x"></i>Each NFT is unique and can
+                            never be replicated, making them a must-have for collectors and art lovers alike.</p>
+                    </div>
+                    <p>So, whether you're a seasoned collector or just looking for something special, our
+                        collection of bird-themed NFTs and art prints has something for everyone. Take a look
+                        and see what catches your eye. And remember, there's no pressure - just enjoy the
+                        journey and find the piece that speaks to you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HERO CAROUSEL  -->
+        <section id="hero-section" class="color-box-dark px-md-4 py-2 py-md-4">
+            <div id="hero-pad" class="color-box color-box-dark-accent">
+                <div id="hero-content" class="row color-box color-box-light">
+                    <div><!-- Section Head -->
+                        <h2>Feathers on Canvas</h2>
+                        <p>If NFTs aren't your thing, no worries! Whether you're looking to add a pop of color to
+                            your walls or show off your love of birds, our art prints are the perfect choice.</p>
+                    </div>
+
+                    <!-- Section Carousel  -->
+                    <div id="carouselId" class="col-12 carousel carousel-fade mx-auto" data-interval="false">
+                        <div id="carousel-box" class="carousel-inner color-box-light d-block mx-auto px-5">
+                            <div class="carousel-item active">
+                                <img src="./lib/img/bird-img1.png" class="img-fluid d-block w-100"
+                                    alt="cypress knee stump white bird">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./lib/img/bird-img2.png" class="img-fluid d-block w-100"
+                                    alt="bird reflection water">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./lib/img/bird-img3.png" class="img-fluid d-block w-100"
+                                    alt="oil painting cypress trees shade">
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselId"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATALOG  -->
+        <section id="catalog" class="row color-box-dark px-md-4 pt-md-4 mt-5 pt-3 px-5 pb-5">
+            <div id="catalog-pad" class="color-box color-box-dark-accent">
+                <div id="catalog-content" class="row color-box color-box-brand">
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
+                        </div>
+
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
                             </p>
-                            <div class="btn-group">
-                                <a href="#hero-section"><button type="button" name="buy-artwork-btn"
-                                        id="buy-artwork-btn"
-                                        class="color-btn btn-primary animate-button animate-button-hover">Buy
-                                        Artwork</button></a>
-                                <a href="#catalog"><button type="button" name="buy-nfts-btn" id="buy-nfts-btn"
-                                        class="color-btn color-btn-light animate-button animate-button-hover">Get
-                                        NFTs</button></a>
-                            </div>
-                        </div>
-                        <!-- RIGHT SIDE OF TITLE -->
-                        <div id="title-img-container" class="snap-sub-section col-md-6 mx-auto pt-5 pt-md-4 ">
-                            <div class="card title-image-card">
-                                <div class="card-margin">
-                                    <img class=" rounded-5 card-image " src=" ./lib/img/bird-img5.png"
-                                        alt="huge cypress tree with heron"> </img>
-                                </div>
-                                <div class="content">
-                                    <!-- <h6 class="category text-primary" >NFTs</h6> -->
-                                    <p class="card-description text-dark-secondary">
-                                        These images are <nobr>easy to use 🦅</nobr> and <nobr>look great 🦉</nobr>
-                                        on
-                                        desktop and mobile.
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
+                        </div>
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
+                        <img class="card-image" src="./lib/img/bird-img8.png">
 
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
+                        </div>
+
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
+                        </div>
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
+                        <img class="card-image" src="./lib/img/bird-img8.png">
+
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
+                        </div>
+
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
+                        </div>
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
+                        </div>
+
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
+                        </div>
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
+                        <img class="card-image" src="./lib/img/bird-img8.png">
+
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
+                        </div>
+
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
+                        </div>
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
+                        <img class="card-image" src="./lib/img/bird-img8.png">
+
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
+                        </div>
+
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                        style="background-color: rgb(246, 245, 243);">
+                        <div class="card-image">
+                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
+                        </div>
+                        <div class="content">
+                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
+                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
+                                Cards are a part of the material design guidelines, but beyond that they're easy to
+                                use
+                                and
+                                look great on desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- ABOUT SECTION  -->
-            <section id="about-section" class="color-box-dark px-md-4 py-2 py-md-4">
-                <div id="about-pad" class="color-box color-box-dark-accent">
-                    <div id="about-content" class="row color-box color-box-brand text-center mx-auto col-lg-10">
-                        <h3>
-                            <nobr>🦆🦉🦅</nobr>
-                            <nobr>🦃🦢🦔</nobr>
-                            <nobr>🕊️🐦</nobr>
-                        </h3>
-                        <h1 class="fw-bold">But why bird-themed art?</h1>
-                        <span class="snap-sub-section"></span>
-                        <h2 class="text-dark-secondary">
-                            <nobr>Birds represent</nobr>
-                            <nobr>freedom, hope,</nobr>
-                            <nobr>and renewal.</nobr>
-                        </h2>
-                        <div class="row justify-content-around">
-                            <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
-                                    class="fa-solid fa-feather fa-2x"></i>Our collection of NFTs
-                                (non-fungible tokens) and art prints will transport you to a world filled with the
-                                beauty and wonder of birds. </p>
-                            <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
-                                    class="fa-solid fa-cubes fa-2x"></i>Our NFTs are one-of-a-kind
-                                digital assets verified on the blockchain, so you're not only getting a beautiful piece
-                                of art, but a piece of history too. </p>
-                            <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
-                                    class="fa-solid fa-file-shield fa-2x"></i>Each NFT is unique and can
-                                never be replicated, making them a must-have for collectors and art lovers alike.</p>
-                        </div>
-                        <p>So, whether you're a seasoned collector or just looking for something special, our
-                            collection of bird-themed NFTs and art prints has something for everyone. Take a look
-                            and see what catches your eye. And remember, there's no pressure - just enjoy the
-                            journey and find the piece that speaks to you.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- HERO CAROUSEL  -->
-            <section id="hero-section" class="color-box-dark px-md-4 py-2 py-md-4">
-                <div id="hero-pad" class="color-box color-box-dark-accent">
-                    <div id="hero-content" class="row color-box color-box-light">
-                        <div><!-- Section Head -->
-                            <h2>Feathers on Canvas</h2>
-                            <p>If NFTs aren't your thing, no worries! Whether you're looking to add a pop of color to
-                                your walls or show off your love of birds, our art prints are the perfect choice.</p>
-                        </div>
-
-                        <!-- Section Carousel  -->
-                        <div id="carouselId" class="col-12 carousel carousel-fade mx-auto" data-interval="false">
-                            <div id="carousel-box" class="carousel-inner color-box-light d-block mx-auto px-5">
-                                <div class="carousel-item active">
-                                    <img src="./lib/img/bird-img1.png" class="img-fluid d-block w-100"
-                                        alt="cypress knee stump white bird">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="./lib/img/bird-img2.png" class="img-fluid d-block w-100"
-                                        alt="bird reflection water">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="./lib/img/bird-img3.png" class="img-fluid d-block w-100"
-                                        alt="oil painting cypress trees shade">
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselId"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselId"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CATALOG  -->
-            <section id="catalog" class="row color-box-dark px-md-4 pt-md-4 mt-5 pt-3 px-5 pb-5">
-                <div id="catalog-pad" class="color-box color-box-dark-accent">
-                    <div id="catalog-content" class="row color-box color-box-brand">
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                            </div>
-
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                            </div>
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
-                            <img class="card-image" src="./lib/img/bird-img8.png">
-
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                            </div>
-
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                            </div>
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
-                            <img class="card-image" src="./lib/img/bird-img8.png">
-
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                            </div>
-
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                            </div>
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                            </div>
-
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                            </div>
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
-                            <img class="card-image" src="./lib/img/bird-img8.png">
-
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                            </div>
-
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                            </div>
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
-                            <img class="card-image" src="./lib/img/bird-img8.png">
-
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                            </div>
-
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
-                            style="background-color: rgb(246, 245, 243);">
-                            <div class="card-image">
-                                <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                            </div>
-                            <div class="content">
-                                <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                                <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                    Cards are a part of the material design guidelines, but beyond that they're easy to
-                                    use
-                                    and
-                                    look great on desktop and mobile.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-            </section>
-
-        </main>
+        <!-- </main> -->
 
         <!-- bottom of page, sitemap, credits, etc. -->
         <footer>
