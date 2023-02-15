@@ -23,7 +23,7 @@
 <body>
 
 
-    <div id="scroll-view" class="container-fluid color-box-dark">
+    <div id="scroll-view" class="row container-fluid color-box-dark">
         <!--         NAVBAR  -->
         <section id="navbar-section" class="">
             <div id="navbar-pad" class="color-box-brand mx-2">
@@ -39,7 +39,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="collapsibleNavId">
-                            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#" aria-current="page">Home
                                         <span class="visually-hidden">(current)</span></a>
@@ -58,70 +58,19 @@
             </div>
         </section>
 
-        <style type="text/css">
-            .autohide {
-                position: fixed;
-                top: 0;
-                right: 0;
-                left: 0;
-                width: 100%;
-                z-index: 1030;
-            }
-
-            .scrolled-down {
-                transform: translateY(-100%);
-                transition: all 0.3s ease-in-out;
-            }
-
-            .scrolled-up {
-                transform: translateY(0);
-                transition: all 0.3s ease-in-out;
-            }
-        </style>
 
         <script type="text/javascript">
-            document.addEventListener("DOMContentLoaded", function () {
-                const el_autohide = document.querySelector('.autohide');
-
-                // add padding-top to body (if necessary)
-                var navbar_height = document.querySelector('.navbar').offsetHeight;
-                var scroll_elem = document.getElementById('scroll-view');
-                scroll_elem.style.height = window.innerHeight - navbar_height;
-                console.log(`this is the margin: ` + scroll_elem.style.height);
-//                document.getElementById("scroll-view").style.height=window.innerHeight;
-
-
-                if (el_autohide) {
-                    // alert('found it');
-                    // console.log(`this is the margin: ` + scroll_elem.style.height);
-
-                    let last_scroll_top = 0;
-                    scroll_elem.addEventListener('scroll', function () {
-                        let scroll_top = scroll_elem.scrollTop;
-                        if (scroll_top < last_scroll_top) {
-                            console.log('scrolled up');
-                            el_autohide.classList.remove('scrolled-down');
-                            el_autohide.classList.add('scrolled-up');
-                        } else {
-                            console.log('scrolled down');
-                            el_autohide.classList.remove('scrolled-up');
-                            el_autohide.classList.add('scrolled-down');
-                        }
-                        last_scroll_top = scroll_top;
-                    });
-                }
-            });
         </script>
         <!-- MAIN PAGE CONTENT -->
         <!-- <main> -->
 
         <!-- TITLE SECTION  -->
         <section id="title-section" class="color-box-dark px-md-4 py-2">
-            <div id="title-pad" class="color-box color-box-dark-accent">
+            <div id="title-pad" class="color-box color-box-dark-accent py-2">
                 <div id="title-content"
-                    class="row color-box color-box-brand text-center mx-auto col-lg-10 justify-content-center align-content-center">
+                    class="row color-box color-box-brand text-center mx-auto my-4 col-lg-10 justify-content-center align-content-center">
                     <!-- LEFT SIDE TITLE -->
-                    <div id="title-text-container" class="col-md-6 pe-md-5 pb-4">
+                    <div id="title-text-container" class="col-md-6 pe-md-5 pb-4 ">
                         <h1 id="title-text" class="">
                             <nobr class="fs-3">The Place for<br></nobr>
                             <nobr>
@@ -167,9 +116,9 @@
         </section>
 
         <!-- ABOUT SECTION  -->
-        <section id="about-section" class="color-box-dark px-md-4">
-            <div id="about-pad" class="color-box color-box-dark-accent">
-                <div id="about-content" class="row color-box color-box-brand text-center mx-auto col-lg-10">
+        <section id="about-section" class="color-box-dark px-md-4 py-2">
+            <div id="about-pad" class="color-box color-box-dark-accent py-2">
+                <div id="about-content" class="row color-box color-box-brand text-center mx-auto col-lg-10 my-4">
                     <h3>
                         <nobr>🦆🦉🦅</nobr>
                         <nobr>🦃🦢🦔</nobr>
@@ -203,9 +152,9 @@
         </section>
 
         <!-- HERO CAROUSEL  -->
-        <section id="hero-section" class="color-box-dark px-md-4 py-2 py-md-4">
-            <div id="hero-pad" class="color-box color-box-dark-accent">
-                <div id="hero-content" class="row color-box color-box-light">
+        <section id="hero-section" class="color-box-dark px-md-4 py-2">
+            <div id="hero-pad" class="color-box color-box-dark-accent py-2">
+                <div id="hero-content" class="row color-box color-box-light my-4">
                     <div><!-- Section Head -->
                         <h2>Feathers on Canvas</h2>
                         <p>If NFTs aren't your thing, no worries! Whether you're looking to add a pop of color to
@@ -244,9 +193,9 @@
         </section>
 
         <!-- CATALOG  -->
-        <section id="catalog" class="row color-box-dark px-md-4 pt-md-4 mt-5 pt-3 px-5 pb-5">
-            <div id="catalog-pad" class="color-box color-box-dark-accent">
-                <div id="catalog-content" class="row color-box color-box-brand">
+        <section id="catalog" class="row color-box-dark px-md-4 py-2">
+            <div id="catalog-pad" class="color-box color-box-dark-accent py-2">
+                <div id="catalog-content" class="row color-box color-box-brand my-4">
                     <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
