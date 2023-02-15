@@ -22,7 +22,7 @@
 
 <body>
 
-
+    <!-- SCROLL VIEW CONTAINER  -->
     <div id="scroll-view" class="row container-fluid color-box-dark">
         <!--         NAVBAR  -->
         <section id="navbar-section" class="">
@@ -56,46 +56,51 @@
                     </div>
                 </nav>
             </div>
-            <script>/* HIDE NAVBAR SCRIPT  */
+            <script>
                 document.addEventListener("DOMContentLoaded", function () {
                     const el_autohide = document.querySelector('.autohide');
 
                     /* // add padding-top to body (if necessary) */
                     var navbar_height = document.querySelector('.navbar').offsetHeight;
                     var scroll_elem = document.getElementById('scroll-view');
-                    scroll_elem.style.height = window.innerHeight - navbar_height;
-                    console.log(`this is the margin: ` + scroll_elem.style.height);
-                    /* //                document.getElementById("scroll-view").style.height=window.innerHeight; */
-
+                    scroll_elem.style.height = scroll_elem.style.height - navbar_height;
 
                     if (el_autohide) {
-                        /* // alert('found it'); */
-                        /* // console.log(`this is the margin: ` + scroll_elem.style.height); */
-
                         let last_scroll_top = 0;
-                        scroll_elem.addEventListener('scroll', function () {
+                        function handleScroll() {
                             let scroll_top = scroll_elem.scrollTop;
                             if (scroll_top < last_scroll_top) {
                                 console.log('scrolled up');
+                                console.log(scroll_elem.height)
                                 el_autohide.classList.remove('scrolled-down');
                                 el_autohide.classList.add('scrolled-up');
                             } else {
                                 console.log('scrolled down');
+                                console.log(scroll_elem.height)
                                 el_autohide.classList.remove('scrolled-up');
                                 el_autohide.classList.add('scrolled-down');
                             }
                             last_scroll_top = scroll_top;
+                        }
+
+                        function debounce(method, delay) {
+                            clearTimeout(method._tId);
+                            method._tId = setTimeout(function () {
+                                method();
+                            }, delay);
+                        }
+
+                        scroll_elem.addEventListener('scroll', function () {
+                            debounce(handleScroll, 200);
                         });
                     }
                 });
             </script>
+
+
         </section>
 
-
-        <script type="text/javascript">
-        </script>
         <!-- MAIN PAGE CONTENT -->
-        <!-- <main> -->
 
         <!-- TITLE SECTION  -->
         <section id="title-section" class="color-box-dark px-md-4 py-2">
@@ -148,45 +153,9 @@
             </div>
         </section>
 
-        <!-- ABOUT SECTION  -->
-        <section id="about-section" class="color-box-dark px-md-4 py-2">
-            <div id="about-pad" class="color-box color-box-dark-accent py-2">
-                <div id="about-content" class="row color-box color-box-brand text-center mx-auto col-lg-10 my-4">
-                    <h3>
-                        <nobr>🦆🦉🦅</nobr>
-                        <nobr>🦃🦢🦔</nobr>
-                        <nobr>🕊️🐦</nobr>
-                    </h3>
-                    <h1 class="fw-bold">But why bird-themed art?</h1>
-                    <h2 class="text-dark-secondary">
-                        <nobr>Birds represent</nobr>
-                        <nobr>freedom, hope,</nobr>
-                        <nobr>and renewal.</nobr>
-                    </h2>
-                    <div class="row justify-content-around">
-                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
-                                class="fa-solid fa-feather fa-2x"></i>Our collection of NFTs
-                            (non-fungible tokens) and art prints will transport you to a world filled with the
-                            beauty and wonder of birds. </p>
-                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
-                                class="fa-solid fa-cubes fa-2x"></i>Our NFTs are one-of-a-kind
-                            digital assets verified on the blockchain, so you're not only getting a beautiful piece
-                            of art, but a piece of history too. </p>
-                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
-                                class="fa-solid fa-file-shield fa-2x"></i>Each NFT is unique and can
-                            never be replicated, making them a must-have for collectors and art lovers alike.</p>
-                    </div>
-                    <p>So, whether you're a seasoned collector or just looking for something special, our
-                        collection of bird-themed NFTs and art prints has something for everyone. Take a look
-                        and see what catches your eye. And remember, there's no pressure - just enjoy the
-                        journey and find the piece that speaks to you.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- HERO CAROUSEL  -->
         <section id="hero-section" class="color-box-dark px-md-4 py-2">
-            <div id="hero-pad" class="color-box color-box-dark-accent py-2">
+            <div id="hero-pad" class="color-box color-box-light-accent py-2">
                 <div id="hero-content" class="row color-box color-box-light my-4">
                     <div><!-- Section Head -->
                         <h2>Feathers on Canvas</h2>
@@ -225,11 +194,48 @@
             </div>
         </section>
 
+        <!-- ABOUT SECTION  -->
+        <section id="about-section" class="color-box-dark px-md-4 py-2">
+            <div id="about-pad" class="color-box color-box-dark-accent py-2">
+                <div id="about-content" class="row color-box color-box-brand text-center mx-auto col-lg-10 my-4">
+                    <h3>
+                        <nobr>🦆🦉🦅</nobr>
+                        <nobr>🦃🦢🦔</nobr>
+                        <nobr>🕊️🐦</nobr>
+                    </h3>
+                    <h1 class="fw-bold">But why bird-themed art?</h1>
+                    <h2 class="text-dark-secondary">
+                        <nobr>Birds represent</nobr>
+                        <nobr>freedom, hope,</nobr>
+                        <nobr>and renewal.</nobr>
+                    </h2>
+                    <div class="row justify-content-around">
+                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
+                                class="fa-solid fa-feather fa-2x"></i>Our collection of NFTs
+                            (non-fungible tokens) and art prints will transport you to a world filled with the
+                            beauty and wonder of birds. </p>
+                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
+                                class="fa-solid fa-cubes fa-2x"></i>Our NFTs are one-of-a-kind
+                            digital assets verified on the blockchain, so you're not only getting a beautiful piece
+                            of art, but a piece of history too. </p>
+                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
+                                class="fa-solid fa-file-shield fa-2x"></i>Each NFT is unique and can
+                            never be replicated, making them a must-have for collectors and art lovers alike.</p>
+                    </div>
+                    <p>So, whether you're a seasoned collector or just looking for something special, our
+                        collection of bird-themed NFTs and art prints has something for everyone. Take a look
+                        and see what catches your eye. And remember, there's no pressure - just enjoy the
+                        journey and find the piece that speaks to you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- todo: fix mobile view to display one card at a time -->
         <!-- CATALOG  -->
         <section id="catalog" class="row color-box-dark px-md-4 py-2">
-            <div id="catalog-pad" class="color-box color-box-dark-accent py-2">
+            <div id="catalog-pad" class="color-box color-box-light-accent py-4">
                 <div id="catalog-content" class="row color-box color-box-brand my-4">
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3 "
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
@@ -245,7 +251,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3 "
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
@@ -260,11 +266,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
+                    <div class="card card-blog col-12 col-md-4 col-lg-3 color-box-light-accent">
                         <img class="card-image" src="./lib/img/bird-img8.png">
 
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
@@ -280,7 +286,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
@@ -295,11 +301,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
+                    <div class="card card-blog col-12 col-md-4 col-lg-3 color-box-light-accent">
                         <img class="card-image" src="./lib/img/bird-img8.png">
 
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
@@ -315,7 +321,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
@@ -330,7 +336,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3 "
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
@@ -346,7 +352,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3 "
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3 "
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
@@ -361,11 +367,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
+                    <div class="card card-blog col-12 col-md-4 col-lg-3 color-box-light-accent">
                         <img class="card-image" src="./lib/img/bird-img8.png">
 
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
@@ -381,7 +387,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
@@ -396,11 +402,11 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog col-6 col-md-4 col-lg-3 color-box-light-accent">
+                    <div class="card card-blog col-12 col-md-4 col-lg-3 color-box-light-accent">
                         <img class="card-image" src="./lib/img/bird-img8.png">
 
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
@@ -416,7 +422,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card card-blog fill-light col-6 col-md-4 col-lg-3"
+                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
                         style="background-color: rgb(246, 245, 243);">
                         <div class="card-image">
                             <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
@@ -434,8 +440,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- </main> -->
 
         <!-- bottom of page, sitemap, credits, etc. -->
         <footer>
