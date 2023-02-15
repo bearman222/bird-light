@@ -54,7 +54,7 @@ h3 {
     overflow-y: scroll;
     scroll-snap-type: y proximity;
     scroll-behavior: smooth;
-    /* scroll-padding-top: 4em; */
+    scroll-padding-top: 5em;
     scroll-padding-bottom: 15em;
 }
 
@@ -91,19 +91,16 @@ h3 {
 }
 
 
-#title-section,
+/* #title-section, */
 #about-section,
 #hero-section,
 #catalog {
     scroll-snap-align: start;
     height: 100vh;
     height: fit-content;
-    scroll-margin-top: 4em;
+    /* scroll-margin-top: 4em; */
     scroll-snap-stop: always;
-    /* scroll-padding-top: 4em; */
-    /* width: 100vw; */
-    /* scroll-snap-stop: always; */
-    /* scroll-padding-bottom: 5em; */
+    scroll-behavior: smooth;
 }
 
 #navbar-section {
