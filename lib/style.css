@@ -133,3 +133,83 @@ h3 {
     max-height: 65vh;
 
 }
+
+
+.card {
+    display: flex;
+    position: relative;
+    /* padding: 4px; */
+    padding-top: 2em;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    border-radius: 6px;
+    color: rgba(0,0,0, 0.87);
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  .card .card-height-indicator {
+    margin-top: 100%;
+  }
+  .card .card-image {
+    position: relative;
+    overflow: hidden;
+    margin-left: 1em;
+    margin-right: auto;
+    margin-top: -3em;
+    border-radius: 2em;
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    -ms-border-radius: 2em;
+    -o-border-radius: 2em;
+}
+  .card .card-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    pointer-events: none;
+  }
+  .card .card-image .card-title {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: #fff;
+    font-size: 1.3em;
+    text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5);
+  }
+  .card .category:not([class*="text-"]) {
+    color: #999999;
+  }
+  .card .content {
+    padding: 15px 30px;
+  }
+  .card .card-description {
+    color: #999999;
+  }
+  .card .card-body {
+    height: 30%;
+    padding: 18px;
+  }
+  .card .card-footer {
+    height: 10%;
+    padding: 18px;
+  }
+  .card .card-footer button, .card .card-footer a {
+    margin: 0 !important;
+    position: relative;
+    bottom: 25px;
+    width: auto;
+  }
+  .card .card-footer button:first-child, .card .card-footer a:first-child {
+    left: -15px;
+  }
+  .card .header {
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin: 15px;
+    border-radius: 3px;
+    padding: 15px 0;
+    background-color: #FFFFFF;
+  }
+  .card .header .title {
+    color: #FFFFFF;
+  }
