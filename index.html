@@ -26,8 +26,9 @@
 
     <!-- SCROLL VIEW CONTAINER  -->
     <div id="scroll-view" class="row container-fluid color-box-dark">
+        
         <!--         NAVBAR  -->
-        <section id="navbar-section" class="">
+        <section id="navbar-section" class="autohide">
             <div id="navbar-pad" class="color-box-brand">
                 <nav class="navbar navbar-expand-md color-box-brand autohide">
                     <div class="container-fluid">
@@ -58,57 +59,18 @@
                     </div>
                 </nav>
             </div>
-            <script id="navbar-hide-script">
-                document.addEventListener("DOMContentLoaded", function () {
-                    const el_autohide = document.querySelector('.autohide');
-
-                    /* // add padding-top to body (if necessary) */
-                    var navbar_height = document.querySelector('.navbar').offsetHeight;
-                    var scroll_elem = document.getElementById('scroll-view');
-                    scroll_elem.style.paddingTop = navbar_height + 'px';
-
-                    if (el_autohide) {
-                        let last_scroll_top = 0;
-                        function handleScroll() {
-                            let scroll_top = scroll_elem.scrollTop;
-                            if (scroll_top < last_scroll_top) {
-                                console.log('scrolled up');
-                                el_autohide.classList.remove('scrolled-down');
-                                el_autohide.classList.add('scrolled-up');
-                            } else {
-                                console.log('scrolled down');
-                                el_autohide.classList.remove('scrolled-up');
-                                el_autohide.classList.add('scrolled-down');
-                            }
-                            last_scroll_top = scroll_top;
-                        }
-
-                        function debounce(method, delay) {
-                            clearTimeout(method._tId);
-                            method._tId = setTimeout(function () {
-                                method();
-                            }, delay);
-                        }
-
-                        scroll_elem.addEventListener('scroll', function () {
-                            debounce(handleScroll, 200);
-                        });
-                    }
-                });
-            </script>
-
-
+            <script id="navbar-scroll-hide" src="./lib/nav-scroll-hide.js"></script>
         </section>
 
         <!-- MAIN PAGE CONTENT -->
 
         <!-- TITLE SECTION  -->
-        <section id="title-section" class="color-box-dark px-md-4 py-2">
-            <div id="title-pad" class="color-box color-box-light py-2">
+        <section id="title-section" class="color-box-dark px-0 px-md-4 pb-4 mb-4 ">
+            <div id="title-pad" class="color-box color-box-dark-accent">
                 <div id="title-content"
-                    class="row color-box color-box-dark-accent text-center mx-auto my-4 col-lg-10 justify-content-center align-content-center">
+                    class="row color-box color-box-light text-center mx-auto my-4 col-lg-10 justify-content-center align-content-center">
                     <!-- LEFT SIDE TITLE -->
-                    <div id="title-left-container" class="col-md-6 mx-auto my-auto py-4">
+                    <div id="title-left-container" class="col-md-6 mx-auto my-auto">
                         <div id="title-text-container" class="color-box color-box-light-accent">
                             <h1 id="title-text" class="color-box color-box-brand">
                                 <nobr class="fs-3">The Place for<br></nobr>
@@ -125,7 +87,7 @@
                             </p>
 
                             <!-- CALL TO ACTION BUTTON -->
-                            <div class="btn-group">
+                            <div class="btn-group align-items-center">
                                 <a href="#hero-section"><button type="button" name="buy-artwork-btn"
                                         id="buy-artwork-btn"
                                         class="color-btn color-btn-brand-outline animate-button animate-button-hover">Buy
@@ -159,9 +121,9 @@
         </section>
 
         <!-- HERO CAROUSEL  -->
-        <section id="hero-section" class="color-box-dark px-md-4 py-2">
-            <div id="hero-pad" class="color-box color-box-light-accent py-2">
-                <div id="hero-content" class="row color-box color-box-light my-4">
+        <section id="hero-section" class="color-box-dark px-0 px-md-4 py-4 my-4 ">
+            <div id="hero-pad" class="color-box color-box-light-accent">
+                <div id="hero-content" class="row color-box color-box-light px-0 px-md-4 py-4 my-4">
                     <div><!-- Section Head -->
                         <h2>Feathers on Canvas</h2>
                         <p>If NFTs aren't your thing, no worries! Whether you're looking to add a pop of color to
@@ -200,7 +162,7 @@
         </section>
 
         <!-- ABOUT SECTION  -->
-        <section id="about-section" class="color-box-dark px-md-4 py-2">
+        <section id="about-section" class="color-box-dark px-0 px-md-4 py-4 my-4 ">
             <div id="about-pad" class="color-box color-box-dark-accent py-2">
                 <div id="about-content" class="row color-box color-box-brand text-center mx-auto col-lg-10 my-4">
                     <h3>
@@ -235,95 +197,11 @@
             </div>
         </section>
 
-        <!-- todo: fix mobile view to display one card at a time -->
         <!-- CATALOG  -->
-        <!-- <section id="scroll-view"> -->
-        <div id="catalog" class="row card-container row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-            <br>
-        </div>
-        <!-- </section> -->
-        <script id="card-load-script">
-            const cardData = [
-                { title: 'Card 1', description: 'Description 1', imageUrl: './lib/img/bird-img1.png' },
-                { title: 'Card 2', description: 'Description 2', imageUrl: './lib/img/bird-img2.png' },
-                { title: 'Card 3', description: 'Description 3', imageUrl: './lib/img/bird-img3.png' },
-                { title: 'Card 4', description: 'Description 4', imageUrl: './lib/img/bird-img4.png' },
-                { title: 'Card 5', description: 'Description 5', imageUrl: './lib/img/bird-img5.png' },
-                { title: 'Card 6', description: 'Description 6', imageUrl: './lib/img/bird-img6.png' },
-                { title: 'Card 7', description: 'Description 7', imageUrl: './lib/img/bird-img7.png' },
-                { title: 'Card 8', description: 'Description 8', imageUrl: './lib/img/bird-img8.png' },
-                { title: 'Card 9', description: 'Description 9', imageUrl: './lib/img/bird-img9.png' },
-                { title: 'Card 10', description: 'Description 10', imageUrl: './lib/img/bird-img10.png' },
-                { title: 'Card 11', description: 'Description 11', imageUrl: './lib/img/bird-img11.png' },
-                { title: 'Card 12', description: 'Description 12', imageUrl: './lib/img/bird-img12.png' },
-                { title: 'Card 13', description: 'Description 13', imageUrl: './lib/img/bird-img13.png' },
-                { title: 'Card 14', description: 'Description 14', imageUrl: './lib/img/bird-img14.png' },
-                { title: 'Card 15', description: 'Description 15', imageUrl: './lib/img/bird-img15.png' },
-                { title: 'Card 16', description: 'Description 16', imageUrl: './lib/img/bird-img16.png' },
-                { title: 'Card 17', description: 'Description 17', imageUrl: './lib/img/bird-img17.png' },
-                { title: 'Card 18', description: 'Description 18', imageUrl: './lib/img/bird-img18.png' },
-                { title: 'Card 19', description: 'Description 19', imageUrl: './lib/img/bird-img19.png' },
-                { title: 'Card 20', description: 'Description 20', imageUrl: './lib/img/bird-img20.png' },
-                { title: 'Card 21', description: 'Description 21', imageUrl: './lib/img/bird-img21.png' },
-                { title: 'Card 22', description: 'Description 22', imageUrl: './lib/img/bird-img22.png' },
-                { title: 'Card 23', description: 'Description 23', imageUrl: './lib/img/bird-img23.png' },
-                { title: 'Card 24', description: 'Description 24', imageUrl: './lib/img/bird-img24.png' },
-                { title: 'Card 25', description: 'Description 25', imageUrl: './lib/img/bird-img1.png' },
-            ];
-
-            const catalog = document.getElementById('catalog');
-            let cardIndex = 0;
-            const cardsPerLoad = 4;
-
-            function createCard(card) {
-                const cardHtml = `
-                    <div class="col mb-4">
-                        <div class="card">
-                            <img src="${card.imageUrl}" class="card-img-top" alt="${card.title}">
-                            <div class="card-body">
-                                <h5 class="card-title">${card.title}</h5>
-                                <p class="card-text">${card.description}</p>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                catalog.insertAdjacentHTML('beforeend', cardHtml);
-            }
-
-            function loadCards() {
-                console.log('loading cards');
-                if (cardIndex + cardsPerLoad >= cardData.length) {
-                    console.log('cardIndex + cardsPerLoad >= cardData.length');
-                }
-
-                for (let i = cardIndex; i < cardIndex + cardsPerLoad && i < cardData.length; i++) {
-                    createCard(cardData[i]);
-                }
-                cardIndex += cardsPerLoad;
-
-            }
-
-            loadCards();
-
-            function debounce(method, delay) {
-                clearTimeout(method._tId);
-                method._tId = setTimeout(function () {
-                    method();
-                }, delay);
-            }
-
-            function cardScrollEvent() {
-                console.log('cardScrollEvent');
-                const scrollHeight = this.scrollHeight;
-                const scrollTop = this.scrollTop;
-                const clientHeight = this.clientHeight;
-                if (scrollTop + clientHeight >= scrollHeight - 20) {
-                    loadCards();
-                }
-            }
-
-            document.getElementById('scroll-view').addEventListener('scroll', cardScrollEvent);
-        </script>
+        <section id="catalog" class="row card-container row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+            <!-- CARDS WILL BE ADDED HERE VIA SCRIPT  -->
+            <script id="card-load-script" src="./lib/card-scroll.js"></script>
+        </section>
 
         <!-- bottom of page, sitemap, credits, etc. -->
         <footer>
