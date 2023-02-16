@@ -42,6 +42,8 @@ h3 {
   scroll-padding-bottom: 15em;
 }
 
+
+/* NAV SCROLL HIDE  */
 .autohide {
   position: fixed;
   top: 0;
@@ -51,7 +53,7 @@ h3 {
   z-index: 1030;
 }
 
-.scrolled-down {
+.scrolled-up {
   transform: translateY(-100%);
   transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
@@ -60,7 +62,7 @@ h3 {
   -o-transition: all 0.5s ease-in-out;
 }
 
-.scrolled-up {
+.scrolled-down {
   transform: translateY(0);
   transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
@@ -69,6 +71,7 @@ h3 {
   -o-transition: all 0.5s ease-in-out;
 }
 
+/* END NAV SCROLL HIDE  */
 
 /* #title-section, */
 /* #catalog, */
