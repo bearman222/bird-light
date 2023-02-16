@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+<!-- TODO:  refactor to 'feather folio' -->
 <head>
     <title>Bird Light</title>
     <!-- Required meta tags -->
@@ -56,14 +57,14 @@
                     </div>
                 </nav>
             </div>
-            <script>
+            <script id="navbar-hide-script">
                 document.addEventListener("DOMContentLoaded", function () {
                     const el_autohide = document.querySelector('.autohide');
 
                     /* // add padding-top to body (if necessary) */
                     var navbar_height = document.querySelector('.navbar').offsetHeight;
                     var scroll_elem = document.getElementById('scroll-view');
-                    scroll_elem.style.height = scroll_elem.style.height - navbar_height;
+                    scroll_elem.style.paddingTop = navbar_height + 'px';
 
                     if (el_autohide) {
                         let last_scroll_top = 0;
@@ -71,12 +72,10 @@
                             let scroll_top = scroll_elem.scrollTop;
                             if (scroll_top < last_scroll_top) {
                                 console.log('scrolled up');
-                                console.log(scroll_elem.height)
                                 el_autohide.classList.remove('scrolled-down');
                                 el_autohide.classList.add('scrolled-up');
                             } else {
                                 console.log('scrolled down');
-                                console.log(scroll_elem.height)
                                 el_autohide.classList.remove('scrolled-up');
                                 el_autohide.classList.add('scrolled-down');
                             }
@@ -232,214 +231,93 @@
 
         <!-- todo: fix mobile view to display one card at a time -->
         <!-- CATALOG  -->
-        <section id="catalog" class="row color-box-dark px-md-4 py-2">
-            <div id="catalog-pad" class="color-box color-box-light-accent py-4">
-                <div id="catalog-content" class="row color-box color-box-brand my-4">
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3 "
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                        </div>
+        <!-- <section id="scroll-view"> -->
+        <div id="catalog" class="row card-container row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+            <br>
+        </div>
+        <!-- </section> -->
+        <script id="card-load-script">
+            const cardData = [
+                { title: 'Card 1', description: 'Description 1', imageUrl: './lib/img/bird-img1.png' },
+                { title: 'Card 2', description: 'Description 2', imageUrl: './lib/img/bird-img2.png' },
+                { title: 'Card 3', description: 'Description 3', imageUrl: './lib/img/bird-img3.png' },
+                { title: 'Card 4', description: 'Description 4', imageUrl: './lib/img/bird-img4.png' },
+                { title: 'Card 5', description: 'Description 5', imageUrl: './lib/img/bird-img5.png' },
+                { title: 'Card 6', description: 'Description 6', imageUrl: './lib/img/bird-img6.png' },
+                { title: 'Card 7', description: 'Description 7', imageUrl: './lib/img/bird-img7.png' },
+                { title: 'Card 8', description: 'Description 8', imageUrl: './lib/img/bird-img8.png' },
+                { title: 'Card 9', description: 'Description 9', imageUrl: './lib/img/bird-img9.png' },
+                { title: 'Card 10', description: 'Description 10', imageUrl: './lib/img/bird-img10.png' },
+                { title: 'Card 11', description: 'Description 11', imageUrl: './lib/img/bird-img11.png' },
+                { title: 'Card 12', description: 'Description 12', imageUrl: './lib/img/bird-img12.png' },
+                { title: 'Card 13', description: 'Description 13', imageUrl: './lib/img/bird-img13.png' },
+                { title: 'Card 14', description: 'Description 14', imageUrl: './lib/img/bird-img14.png' },
+                { title: 'Card 15', description: 'Description 15', imageUrl: './lib/img/bird-img15.png' },
+                { title: 'Card 16', description: 'Description 16', imageUrl: './lib/img/bird-img16.png' },
+                { title: 'Card 17', description: 'Description 17', imageUrl: './lib/img/bird-img17.png' },
+                { title: 'Card 18', description: 'Description 18', imageUrl: './lib/img/bird-img18.png' },
+                { title: 'Card 19', description: 'Description 19', imageUrl: './lib/img/bird-img19.png' },
+                { title: 'Card 20', description: 'Description 20', imageUrl: './lib/img/bird-img20.png' },
+                { title: 'Card 21', description: 'Description 21', imageUrl: './lib/img/bird-img21.png' },
+                { title: 'Card 22', description: 'Description 22', imageUrl: './lib/img/bird-img22.png' },
+                { title: 'Card 23', description: 'Description 23', imageUrl: './lib/img/bird-img23.png' },
+                { title: 'Card 24', description: 'Description 24', imageUrl: './lib/img/bird-img24.png' },
+                { title: 'Card 25', description: 'Description 25', imageUrl: './lib/img/bird-img1.png' },
+            ];
 
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3 "
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                        </div>
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog col-12 col-md-4 col-lg-3 color-box-light-accent">
-                        <img class="card-image" src="./lib/img/bird-img8.png">
+            const catalog = document.getElementById('catalog');
+            let cardIndex = 0;
+            const cardsPerLoad = 4;
 
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
+            function createCard(card) {
+                const cardHtml = `
+                    <div class="col mb-4">
+                        <div class="card">
+                            <img src="${card.imageUrl}" class="card-img-top" alt="${card.title}">
+                            <div class="card-body">
+                                <h5 class="card-title">${card.title}</h5>
+                                <p class="card-text">${card.description}</p>
+                            </div>
                         </div>
+                    </div>
+                `;
+                catalog.insertAdjacentHTML('beforeend', cardHtml);
+            }
 
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                        </div>
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog col-12 col-md-4 col-lg-3 color-box-light-accent">
-                        <img class="card-image" src="./lib/img/bird-img8.png">
+            function loadCards() {
+                console.log('loading cards');
+                if (cardIndex + cardsPerLoad >= cardData.length) {
+                    console.log('cardIndex + cardsPerLoad >= cardData.length');
+                }
 
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                        </div>
+                for (let i = cardIndex; i < cardIndex + cardsPerLoad && i < cardData.length; i++) {
+                    createCard(cardData[i]);
+                }
+                cardIndex += cardsPerLoad;
 
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                        </div>
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3 "
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                        </div>
+            }
 
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3 "
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                        </div>
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog col-12 col-md-4 col-lg-3 color-box-light-accent">
-                        <img class="card-image" src="./lib/img/bird-img8.png">
+            loadCards();
 
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                        </div>
+            function debounce(method, delay) {
+                clearTimeout(method._tId);
+                method._tId = setTimeout(function () {
+                    method();
+                }, delay);
+            }
 
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                        </div>
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog col-12 col-md-4 col-lg-3 color-box-light-accent">
-                        <img class="card-image" src="./lib/img/bird-img8.png">
+            function cardScrollEvent() {
+                console.log('cardScrollEvent');
+                const scrollHeight = this.scrollHeight;
+                const scrollTop = this.scrollTop;
+                const clientHeight = this.clientHeight;
+                if (scrollTop + clientHeight >= scrollHeight - 20) {
+                    loadCards();
+                }
+            }
 
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="img" src="./lib/img/bird-img6.png" alt="bird-img6">
-                        </div>
-
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card card-blog fill-light col-12 col-md-4 col-lg-3"
-                        style="background-color: rgb(246, 245, 243);">
-                        <div class="card-image">
-                            <img class="" src="./lib/img/bird-img7.png" alt="bird-img7">
-                        </div>
-                        <div class="content">
-                            <h6 class="category text-primary" style="color: rgb(103, 125, 158);">Cards</h6>
-                            <p class="card-description text-dark-secondary" style="color: rgb(59, 62, 77);">
-                                Cards are a part of the material design guidelines, but beyond that they're easy to
-                                use
-                                and
-                                look great on desktop and mobile.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            document.getElementById('scroll-view').addEventListener('scroll', cardScrollEvent);
+        </script>
 
         <!-- bottom of page, sitemap, credits, etc. -->
         <footer>
@@ -454,6 +332,12 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
             integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
             </script>
+
+        <!-- Masonry Card Stacking Library -->
+        <script async src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+            integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+            crossorigin="anonymous"></script>
+
 
 
         <link rel="stylesheet" href="./lib/style.css">

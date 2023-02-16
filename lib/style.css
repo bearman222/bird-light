@@ -92,9 +92,10 @@ h3 {
 
 
 /* #title-section, */
+/* #catalog, */
 #about-section,
-#hero-section,
-#catalog {
+#hero-section
+ {
     scroll-snap-align: start;
     height: 100vh;
     height: fit-content;
@@ -212,4 +213,8 @@ h3 {
   }
   .card .header .title {
     color: #FFFFFF;
+  }
+
+  .card .card-product {
+    background-color: blue;
   }
