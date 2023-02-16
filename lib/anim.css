@@ -7,10 +7,9 @@ html {
 }
 .animate-logo {
     animation-name: animate-bird;
-    /* animation-delay: 2s; */
     animation-duration: 2s;
     animation-timing-function: cubic-bezier(0.39, 0.05, 0.565, 1);
-    animation-fill-mode: forwards;
+    animation-fill-mode: both;
 }
 
 .animate-title-text {
@@ -25,6 +24,7 @@ html {
     -moz-transition: all 1s ease;
     -ms-transition: all 1s ease;
     -o-transition: all 1s ease;
+    animation-fill-mode: both;
 }
 
 @media only screen and (max-width:800) {

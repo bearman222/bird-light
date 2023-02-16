@@ -1,7 +1,7 @@
 /*WEBSITE COLORS*/
 :root {
-    --color-brand: #B0C2C4;
-    --color-light-accent: #F4D35E;
+    --color-brand: #F4D35E;
+    --color-light-accent: #abc5c8;
     --color-light: #FAF0CA;
     --color-dark-accent: #0D3B66;
     --color-dark: #232f29;
@@ -62,20 +62,30 @@
 /*STYLE FOR BUTTONS */
 .color-btn {
     border-width: 3px;
-    border-radius: 0.5em;
     padding: 10px;
     font-weight: 600;
     font-size: 1.2rem;
     line-height: 1;
+    border-radius: 0.5em;
     -webkit-border-radius: 0.5em;
     -moz-border-radius: 0.5em;
     -ms-border-radius: 0.5em;
     -o-border-radius: 0.5em;
+
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
 }
 
 .color-btn:hover {
-    border-radius: 1em 0.25em;
     cursor: crosshair;
+    border-radius: 1.5em 0.25em;
+    -webkit-border-radius: 1.5em 0.25em;
+    -moz-border-radius: 1.5em 0.25em;
+    -ms-border-radius: 1.5em 0.25em;
+    -o-border-radius: 1.5em 0.25em;
 }
 
 .color-btn-light {
@@ -100,17 +110,23 @@
 }
 
 .color-btn-brand:hover {
+
     color: var(--text-light);
     background-color: var(--color-dark-accent);
+
 }
 
 .color-btn-brand-outline {
+    border-width: 6px;
     color: var(--text-dark);
+    background-color: #00000000;
     border-color: var(--color-brand);
 }
 
 .color-btn-brand-outline:hover {
+
     background-color: var(--color-brand);
+
 }
 
 .color-btn-dark {
@@ -125,8 +141,10 @@
 }
 
 .color-btn-dark-outline:hover {
+
     color: var(--text-light);
     background-color: var(--color-dark-accent);
+
 }
 
 /* TEXT COLORS */
