@@ -26,11 +26,11 @@
 
     <!-- SCROLL VIEW CONTAINER  -->
     <div id="scroll-view" class="row container-fluid color-box-dark">
-        
+
         <!--         NAVBAR  -->
         <section id="navbar-section" class="autohide">
-            <div id="navbar-pad" class="color-box-brand">
-                <nav class="navbar navbar-expand-md color-box-brand autohide">
+            <div id="navbar-pad" class="color-box-dark">
+                <nav class="navbar navbar-expand-md color-box-brand">
                     <div class="container-fluid">
                         <a class="navbar-brand fw-semibold" href="index.html"> <img class="navbar-brand-icon"
                                 src="./lib/feather-folio.ico" alt="icon">
@@ -68,10 +68,10 @@
         <section id="title-section" class="color-box-dark px-0 px-md-4 pb-4 mb-4 ">
             <div id="title-pad" class="color-box color-box-dark-accent">
                 <div id="title-content"
-                    class="row color-box color-box-light text-center mx-auto my-4 col-lg-10 justify-content-center align-content-center">
+                    class="row color-box color-box-light-accent text-center  mx-auto px-md-4 my-4 py-4 col-lg-10 justify-content-center align-content-center">
                     <!-- LEFT SIDE TITLE -->
                     <div id="title-left-container" class="col-md-6 mx-auto my-auto">
-                        <div id="title-text-container" class="color-box color-box-light-accent">
+                        <div id="title-text-container" class="color-box color-box-light">
                             <h1 id="title-text" class="color-box color-box-brand">
                                 <nobr class="fs-3">The Place for<br></nobr>
 
@@ -92,7 +92,7 @@
                                         id="buy-artwork-btn"
                                         class="color-btn color-btn-brand-outline animate-button animate-button-hover">Buy
                                         Artwork</button></a>
-                                <a href="#catalog"><button type="button" name="buy-nfts-btn" id="buy-nfts-btn"
+                                <a href="#catalog-section"><button type="button" name="buy-nfts-btn" id="buy-nfts-btn"
                                         class="color-btn color-btn-brand animate-button animate-button-hover">Get
                                         NFTs</button></a>
                             </div>
@@ -122,8 +122,8 @@
 
         <!-- HERO CAROUSEL  -->
         <section id="hero-section" class="color-box-dark px-0 px-md-4 py-4 my-4 ">
-            <div id="hero-pad" class="color-box color-box-light-accent">
-                <div id="hero-content" class="row color-box color-box-light px-0 px-md-4 py-4 my-4">
+            <div id="hero-pad" class="color-box color-box-brand">
+                <div id="hero-content" class="row color-box color-box-light  mx-auto px-md-4 my-4 py-4 col-lg-10 ">
                     <div><!-- Section Head -->
                         <h2>Feathers on Canvas</h2>
                         <p>If NFTs aren't your thing, no worries! Whether you're looking to add a pop of color to
@@ -132,7 +132,7 @@
 
                     <!-- Section Carousel  -->
                     <div id="carouselId" class="col-12 carousel carousel-fade mx-auto" data-interval="false">
-                        <div id="carousel-box" class="carousel-inner color-box-light d-block mx-auto px-5">
+                        <div id="carousel-box" class="carousel-inner color-box-light d-block mx-auto">
                             <div class="carousel-item active">
                                 <img src="./lib/img/bird-img1.png" class="img-fluid d-block w-100"
                                     alt="cypress knee stump white bird">
@@ -163,31 +163,36 @@
 
         <!-- ABOUT SECTION  -->
         <section id="about-section" class="color-box-dark px-0 px-md-4 py-4 my-4 ">
-            <div id="about-pad" class="color-box color-box-dark-accent py-2">
-                <div id="about-content" class="row color-box color-box-brand text-center mx-auto col-lg-10 my-4">
+            <div id="about-pad" class="color-box color-box-dark-accent">
+                <div id="about-content"
+                    class="row color-box color-box-light-accent text-center  mx-auto px-md-4 my-4 py-4 col-lg-10 ">
                     <h3>
                         <nobr>🦆🦉🦅</nobr>
                         <nobr>🦃🦢🦔</nobr>
                         <nobr>🕊️🐦</nobr>
                     </h3>
-                    <h1 class="fw-bold">But why bird-themed art?</h1>
+                    <h1 class="fw-bold">Why bird-themed art?</h1>
                     <h2 class="text-dark-secondary">
                         <nobr>Birds represent</nobr>
                         <nobr>freedom, hope,</nobr>
                         <nobr>and renewal.</nobr>
                     </h2>
                     <div class="row justify-content-around">
-                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
-                                class="fa-solid fa-feather fa-2x"></i>Our collection of NFTs
-                            (non-fungible tokens) and art prints will transport you to a world filled with the
-                            beauty and wonder of birds. </p>
-                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
-                                class="fa-solid fa-cubes fa-2x"></i>Our NFTs are one-of-a-kind
-                            digital assets verified on the blockchain, so you're not only getting a beautiful piece
-                            of art, but a piece of history too. </p>
-                        <p class="card card-text col-10 col-md-5 col-lg-3 mx-auto py-2"><i
-                                class="fa-solid fa-file-shield fa-2x"></i>Each NFT is unique and can
-                            never be replicated, making them a must-have for collectors and art lovers alike.</p>
+                        <p class="card card-text col-8 col-md-5 col-lg-3 mx-auto py-2">
+                            <i class="fa-solid fa-feather fa-3x color-icon my-3"></i>
+                            Our collection of NFTs (non-fungible tokens) and art prints will transport you to a world
+                            filled with the beauty and wonder of birds.
+                        </p>
+                        <p class="card card-text col-8 col-md-5 col-lg-3 mx-auto py-2">
+                            <i class="fa-solid fa-cubes fa-3x color-icon my-3"></i>
+                            Our NFTs are one-of-a-kind digital assets verified on the blockchain, so you're not only
+                            getting a beautiful piece of art, but a piece of history too.
+                        </p>
+                        <p class="card card-text col-8 col-md-5 col-lg-3 mx-auto py-2">
+                            <i class="fa-solid fa-file-shield fa-3x color-icon my-3"></i>
+                            Each NFT is unique and can never be replicated, making them a must-have for collectors and
+                            art lovers alike.
+                        </p>
                     </div>
                     <p>So, whether you're a seasoned collector or just looking for something special, our
                         collection of bird-themed NFTs and art prints has something for everyone. Take a look
@@ -198,9 +203,14 @@
         </section>
 
         <!-- CATALOG  -->
-        <section id="catalog" class="row card-container row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-            <!-- CARDS WILL BE ADDED HERE VIA SCRIPT  -->
-            <script id="card-load-script" src="./lib/card-scroll.js"></script>
+        <section id="catalog-section" class="color-box-dark px-0 px-md-4 py-4 my-4 ">
+            <div id="catalog-pad" class="color-box color-box-brand">
+                <div id="catalog-content"
+                    class="row color-box color-box-light card-container row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  mx-auto px-md-4 my-4 py-4 col-lg-10">
+                    <!-- CARDS WILL BE ADDED HERE VIA SCRIPT  -->
+                    <script id="card-load-script" src="./lib/card-scroll.js"></script>
+                </div>
+            </div>
         </section>
 
         <!-- bottom of page, sitemap, credits, etc. -->
